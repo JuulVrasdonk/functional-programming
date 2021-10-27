@@ -39,11 +39,11 @@ const data = require('./tech-track-dataset.json');
  
 // Loop over alle data en pak ieder individueel object.
 data.forEach(singleData => {
-    // console.log(`
+    console.log(`
 
-    // NIEUW OBJECT!!!
+    NIEUW OBJECT!!!
     
-    // `);
+    `);
 
     // console.log(Object.keys(singleData));
 
@@ -66,6 +66,39 @@ data.forEach(singleData => {
             case "Wat is je favoriete windrichting?":
                 new_key = "windrichting";
                 break;
+            case "Op een schaal van 1 tot 10, hoeveel zin heb je in de Tech Track?":
+                new_key = "zinInTechTrack";
+                break;
+            case "Kies zelf of je deze vraag beantwoord.":
+                new_key = "kiesAntwoord";
+                break;
+            case "Wat is je favoriete datum?":
+                new_key = "datum"
+                break;
+            case "Wat is je favoriete datum, maar nu in tekst!":
+                new_key = "datumTekst";
+                break;
+            case "Wat is je favoriete zuivelproduct?":
+                new_key = "zuivelproduct";
+                break;
+            case "Welke kleur kledingstukken heb je aan vandaag? (Meerdere antwoorden mogelijk natuurlijk...)":
+                new_key = "kleurKledingstukken";
+                break;
+            case "Op welke verdieping van het TTH studeer je het liefst?":
+                new_key = "verdieping";
+                break;
+            case "Wat wil je worden als je groot bent?":
+                new_key = "laterGroot";
+                break;
+            case "Wat wilde je later worden als je groot bent, maar nu toen je zelf 8 jaar was.":
+                new_key = "laterGroot8";
+                break;
+            case "Kaas is ook een zoogdier?":
+                new_key = "kaasZoogdier";
+                break;
+            case "Als je later een auto zou kopen, van welk merk zou deze dan zijn?":
+                new_key = "automerk";
+                break;
             default:
                 // Als ie niet bestaat, maak 'm dan undefined
                 new_key = undefined;
@@ -80,12 +113,18 @@ data.forEach(singleData => {
                 Object.getOwnPropertyDescriptor(singleData, singleQuestion));
                 // Verwijder de oude "key" nu we de nieuwe al hebben gedefinieerd
             delete singleData[singleQuestion];
-
-            // Log het hele object
-            console.log(singleData);
+            
         }
+        
     });
+    // Object.values(singleData).forEach(singleQuestion => {
+    //     console.log('hallo!');
+    // })
+    // Log het hele object
+    console.log(singleData);
 });
+
+
 
 
 // console.log(toLowerCase);
