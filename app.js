@@ -1,57 +1,32 @@
-// fetch('tech-track-dataset.json').then(response => {
+// // fetch('tech-track-dataset.json').then(response => {
 
-// return response.json();
-
-
-// }).then(data => {
-
-//     console.log(data);
-//     // console.log(data);
-
-// }).catch(err => {});
+// // return response.json();
 
 
+// // }).then(data => {
+
+// //     console.log(data);
+// //     // console.log(data);
+
+// // }).catch(err => {});
 
 const data = require('./tech-track-dataset.json');
 
-// console.log(data);
-
-
-// let onderwerpNaam = 'Wat is je oogkleur?';
-
-// let toLowerCase = data.map(answers => answers[onderwerpNaam].toLowerCase());
-
-// let replaceQuestion = data.map(() => onderwerpNaam.replace(onderwerpNaam, 'oogkleur'));
-
-// console.log(replaceQuestion);
-
-
-// alleData.forEach(singleData => {
-// Object.keys(singleData).forEach(singleQuestion => {
-// console.log(singleQuestion);
-// });
-// });
- 
-// Object.keys(alleData[0]).forEach(singleQuestion => {
-// console.log(singleQuestion);
-// console.log(alleData[0][singleQuestion])
-// });
- 
 // Loop over alle data en pak ieder individueel object.
-data.forEach(singleData => {
-    console.log(`
+data.map(singleData => {
+    // console.log(`
 
-    NIEUW OBJECT!!!
+    // NIEUW OBJECT!!!\
     
-    `);
-
-    // console.log(Object.keys(singleData));
+    // `);
+    
+    // console.log(Object.values(singleData));
 
     // Definieer de nieuwe key, maar geef er nog geen variable aan
     let new_key;
     
     // Voor iedere key in het object, loop als een array
-    Object.keys(singleData).forEach(singleQuestion => {
+    Object.keys(singleData).map(singleQuestion => {
 
         // singleQuestion is een array met alle object "keys"
 
@@ -116,15 +91,47 @@ data.forEach(singleData => {
             
         }
         
+        
+        
     });
-    // Object.values(singleData).forEach(singleQuestion => {
-    //     console.log('hallo!');
-    // })
     // Log het hele object
-    console.log(singleData);
+    // console.log(singleData);
+    
+});
+
+
+// let answers = data.map(answer => {
+//         const searchAnswers = answer.laterGroot
+//         return searchAnswers.charAt(0).toUpperCase() + searchAnswers.slice(1);
+// })
+
+let datas = data.map(data => {
+    return data.laterGroot;
+})
+
+let cleanedLaterGroot = datas.map((data) => {
+    if(typeof data === 'string' && data.length > 1) {
+    data =  data.toLowerCase() 
+            .substring()
+            .replace(/[^\w\s]/gi,'')
+            .replaceAll('frontend', 'front-end')
+            .replaceAll('code designer', 'front-end')
+            .replaceAll('webdeveloper', 'front-end')
+
+    return data.charAt(0).toUpperCase() + data.slice(1);
+       
+    } else {
+        return data = 'geen antwoord'
+    } 
+      
 });
 
 
 
 
-// console.log(toLowerCase);
+// let lowerCase = datas.map((data) => {
+//     return data.toLowerCase()
+// })
+
+// console.log(lowerCase);
+console.log(cleanedLaterGroot);
