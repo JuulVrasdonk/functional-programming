@@ -1,14 +1,14 @@
-// // fetch('tech-track-dataset.json').then(response => {
+// fetch('tech-track-dataset.json').then(response => {
 
-// // return response.json();
+// return response.json();
 
 
-// // }).then(data => {
+// }).then(data => {
 
-// //     console.log(data);
-// //     // console.log(data);
+//     console.log(data);
+//     // console.log(data);
 
-// // }).catch(err => {});
+// }).catch(err => {});
 
 const data = require('./tech-track-dataset.json');
 
@@ -121,7 +121,7 @@ let cleanedLaterGroot = datas.map((data) => {
     return data.charAt(0).toUpperCase() + data.slice(1);
        
     } else {
-        return data = 'geen antwoord'
+        return data = 'Geen antwoord'
     } 
       
 });
