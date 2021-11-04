@@ -23,13 +23,13 @@ git clone https://github.com/JuulVrasdonk/functional-programming
 Install the Packages
 
 ```
-yarn
+npm install
 ```
 
 Start the Server
 
 ```
-yarn run start
+npm start
 ```
 
 ## Features
