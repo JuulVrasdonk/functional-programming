@@ -14,14 +14,6 @@ const data = require('./tech-track-dataset.json');
 
 // Loop over alle data en pak ieder individueel object.
 data.map(singleData => {
-    // console.log(`
-
-    // NIEUW OBJECT!!!\
-    
-    // `);
-    
-    // console.log(Object.values(singleData));
-
     // Definieer de nieuwe key, maar geef er nog geen variable aan
     let new_key;
     
@@ -94,8 +86,6 @@ data.map(singleData => {
         
         
     });
-    // Log het hele object
-    // console.log(singleData);
     
 });
 
@@ -115,9 +105,26 @@ let cleanedLaterGroot = datas.map((data) => {
             .substring()
             .replace(/[^\w\s]/gi,'')
             .replaceAll('frontend', 'front-end')
-            .replaceAll('code designer', 'front-end')
-            .replaceAll('webdeveloper', 'front-end')
-
+            .replaceAll(
+                /code designer|front-ender|webdeveloper  webdesigner/gi, 
+                'front-end developer'
+                )
+            .replaceAll(
+                /rijk|succesvol|multimiljonair/gi,
+                'welvarend'
+            )
+            .replace(
+                /lead bij een design agency of zelfstandig ondernemer/gi, 
+                'ondernemer'
+            )
+            .replace(
+                /geen idee we zien wel hoe het loopt/gi, 
+                'geen idee'
+            )
+            .replace(
+                /full time kunnen reizen/gi,
+                'reizen'
+            )
     return data.charAt(0).toUpperCase() + data.slice(1);
        
     } else {
@@ -126,12 +133,40 @@ let cleanedLaterGroot = datas.map((data) => {
       
 });
 
+// const frontEndArr = []
 
+// const hoeveelAntwoord = cleanedLaterGroot.map((data) => {    
 
-
-// let lowerCase = datas.map((data) => {
-//     return data.toLowerCase()
+    
+// switch(data) {
+//     case "Front-end developer":
+//     frontEndArr.push('Front-end developer')
+//     break;
+// }
 // })
 
-// console.log(lowerCase);
+// console.log(frontEndArr.length);
+
+const counts = {};
+
+for (const num of cleanedLaterGroot) {
+  counts[num] = counts[num] ? counts[num] + 1 : 1;
+}
+
+const occurrences = cleanedLaterGroot.reduce((acc, curr) => {
+    return acc[curr] ? ++acc[curr] : acc[curr] = 1, acc
+  }, {});
+
+const occurencesSortValues = Object.values(occurrences).sort((a,b) => b[1]-a[1])
+
+console.log(occurencesSortValues);
+
+// let frontEndFilter =  cleanedLaterGroot.filter(n => n == 'Front-end developer');
+// let welvarendFilter = cleanedLaterGroot.filter(n => n == 'Welvarend');
+
+// console.log(frontEndFilter.length, welvarendFilter.length);
+
+
+// console.log(showData);
+
 console.log(cleanedLaterGroot);
